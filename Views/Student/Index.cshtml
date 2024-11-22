@@ -1,0 +1,103 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.Students>
+
+@{
+    ViewData["Title"] = "GetStudents";
+}
+
+<h1 class="text-center">GetStudents</h1>
+
+<button  class="btn btn-sm btn-primary m-2" id="btnAddStudent">Create New</button>
+
+<table class="table table-bordered">
+    <thead>
+        <tr class="text-center">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Branch</th>
+            <th>PhoneNumber</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody id="table_data" class="text-center"></tbody>
+</table>
+<div>
+    <input type="hidden" id="urlStudentData" value="@Url.Action("GetStudents","Student")" />
+</div>
+
+
+<!--Add student Modal -->
+<div class="modal fade" id="AddStudentModal" tabindex="-1" aria-labelledby="AddStudentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="exampleModalLabel">Add Student</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addStudentForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" autocomplete="off" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="age" class="form-label">Age</label>
+                        <input type="number" class="form-control" id="age" autocomplete="off" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="branch" class="form-label">Branch</label>
+                        <input type="text" class="form-control" id="branch" autocomplete="off" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="StudentPhone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="phoneNumber" autocomplete="off" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" onclick="AddStudent()" class="btn btn-primary" id="addStudent">Add Student</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Student Modal -->
+<div class="modal fade" id="EditStudentModal" tabindex="-1" aria-labelledby="EditStudentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="EditModalLabel">Edit Student Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editStudentForm">
+                    <div class="mb-3">
+                        <label for="edit_studentid" class="form-label">Student Id</label>
+                        <input type="text" class="form-control" id="edit_studentid" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="edit_name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_age" class="form-label">Age</label>
+                        <input type="number" class="form-control" id="edit_age" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_branch" class="form-label">Branch</label>
+                        <input type="text" class="form-control" id="edit_branch" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_phoneNumber" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="edit_phoneNumber" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" onclick="EditStudent()" class="btn btn-primary" id="EditStudent">Edit Student</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+# Ignore the build results
+bin/
+obj/
+
+# Ignore user-specific files
+.vs/
+.vscode/
+.idea/
+
+# Ignore ASP.NET Core environment settings
+appsettings.Development.json
+appsettings.Local.json
+
+# Ignore temporary files
+# Windows Installer files
+Thumbs.db
+Desktop.ini
+
+# User-specific files for Visual Studio
+.vsconfig
+.vscode/
+.idea/
+
+# Ignore ASP.NET Core runtime files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Ignore NUGET packages directory
+packages/
+
+# Ignore .NET Core build output
+/wwwroot/
+
+# Ignore logs and database files
+*.log
+*.db
+*.bak
+
+# Ignore npm / node_modules (if using Node.js for client-side)
+node_modules/
+
+# Ignore the generated files from automated tools (e.g., Swagger UI or IDE generated)
+swagger/
